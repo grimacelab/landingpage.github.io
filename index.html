@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grimace Consciousness — The Gateway</title>
+    <style>
+        :root {
+            --bg-color: #fbf9f6;
+            --text-color: #1a1a1a;
+            --accent-color: #666666;
+            --border-color: #e6e3df;
+            --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            --font-serif: "Didot", "Bodoni MT", "Cinzel", "Times New Roman", serif;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-family: var(--font-sans);
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
+            letter-spacing: -0.01em;
+        }
+
+        /* Layout Grid */
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        header {
+            border-bottom: 1px solid var(--border-color);
+            padding: 3rem 0;
+        }
+
+        .logo {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.25em;
+            font-weight: 700;
+            color: var(--text-color);
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 8rem 0 6rem 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .hero h1 {
+            font-family: var(--font-serif);
+            font-size: 4.2rem;
+            font-weight: 400;
+            line-height: 1.05;
+            margin-bottom: 3rem;
+            letter-spacing: -0.03em;
+        }
+
+        .hero p.lead {
+            font-family: var(--font-sans);
+            font-size: 1.4rem;
+            font-weight: 300;
+            max-width: 800px;
+            color: var(--text-color);
+            line-height: 1.6;
+            margin-bottom: 3rem;
+        }
+
+        /* Notice Box */
+        .somatic-check {
+            border-left: 2px solid var(--text-color);
+            padding: 0.5rem 0 0.5rem 2rem;
+            max-width: 650px;
+            font-size: 1rem;
+            color: var(--accent-color);
+            margin-bottom: 4rem;
+            font-style: italic;
+        }
+
+        /* Video Embed Component */
+        .video-wrapper {
+            margin: 4rem 0;
+            max-width: 850px;
+            background-color: #000;
+            position: relative;
+            padding-bottom: 56.25%; 
+            height: 0;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.03);
+        }
+
+        .video-wrapper iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+
+        /* Podcast Section */
+        .podcast-container {
+            margin-top: 4rem; 
+            max-width: 650px; 
+            border-top: 1px solid var(--border-color);
+            padding: 2rem 0; 
+            background-color: transparent;
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            cursor: pointer;
+        }
+
+        .podcast-container:hover .podcast-title {
+            text-decoration-color: var(--accent-color);
+            color: var(--accent-color);
+        }
+        
+        .podcast-container:hover .play-btn {
+            background-color: var(--text-color);
+        }
+        .podcast-container:hover .play-btn svg path {
+            fill: var(--bg-color);
+            stroke: var(--bg-color);
+        }
+
+        .play-btn {
+            width: 44px; 
+            height: 44px; 
+            border-radius: 50%; 
+            border: 1px solid var(--border-color); 
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+            flex-shrink: 0;
+            transition: all 0.4s ease;
+        }
+
+        .podcast-title {
+            font-family: var(--font-serif); 
+            font-size: 1.35rem; 
+            font-weight: 400; 
+            line-height: 1.3; 
+            margin-bottom: 0.5rem;
+            transition: color 0.3s ease;
+        }
+
+        /* The Grid / Framework Section */
+        .framework-section {
+            padding: 8rem 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .section-title {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.3em;
+            color: var(--accent-color);
+            margin-bottom: 4rem;
+            font-weight: 600;
+        }
+
+        /* Editorial Alternating Layout for Framework */
+        .framework-layout {
+            display: flex;
+            flex-direction: column;
+            gap: 5rem;
+            max-width: 850px;
+        }
+
+        .framework-row {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 4rem;
+            border-top: 1px solid var(--border-color);
+            padding-top: 2rem;
+        }
+
+        .framework-row h3 {
+            font-family: var(--font-serif);
+            font-size: 1.8rem;
+            font-weight: 400;
+            line-height: 1.1;
+        }
+
+        .framework-row .step-meta {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--accent-color);
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        .framework-row p {
+            color: #333;
+            font-size: 1.05rem;
+            font-weight: 300;
+        }
+
+        /* What to Expect / Logistics */
+        .logistics-section {
+            padding: 8rem 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .logistics-list {
+            list-style: none;
+            max-width: 850px;
+        }
+
+        .logistics-list li {
+            padding: 2rem 0;
+            border-bottom: 1px solid var(--border-color);
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 4rem;
+            align-items: baseline;
+        }
+
+        .logistics-list li:first-child {
+            border-top: 1px solid var(--border-color);
+        }
+
+        .label {
+            font-weight: 500;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+        }
+
+        .detail {
+            color: #222;
+            font-size: 1.05rem;
+            font-weight: 300;
+        }
+
+        /* Call To Action */
+        .cta-section {
+            padding: 10rem 0;
+            text-align: center;
+        }
+
+        .btn {
+            display: inline-block;
+            border: 1px solid var(--text-color);
+            color: var(--text-color);
+            padding: 1.5rem 3.5rem;
+            text-decoration: none;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            font-weight: 600;
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            background-color: transparent;
+        }
+
+        .btn:hover {
+            background-color: var(--text-color);
+            color: var(--bg-color);
+        }
+
+        .sub-cta {
+            margin-top: 2.5rem;
+            font-size: 0.9rem;
+            color: var(--accent-color);
+            font-weight: 300;
+        }
+
+        .sub-cta a {
+            color: var(--text-color);
+            text-decoration: none;
+            border-bottom: 1px solid var(--text-color);
+            padding-bottom: 2px;
+            transition: color 0.3s ease;
+        }
+
+        .sub-cta a:hover {
+            color: var(--accent-color);
+            border-bottom-color: var(--border-color);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.8rem; }
+            .hero p.lead { font-size: 1.2rem; }
+            .framework-row, .logistics-list li { grid-template-columns: 1fr; gap: 1rem; }
+            .hero { padding: 5rem 0; }
+            .framework-section, .logistics-section { padding: 5rem 0; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <div class="logo">Grimace Consciousness</div>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="container">
+                <h1>Your tight jaw is your body's loud whisper for liberation.</h1>
+                <p class="lead">
+                   Most wellness programs create a false divide between deep practice and daily business. <strong>Grimace Consciousness</strong> bridges that gap. It is a somatic intervention for high-achievers who refuse to let the friction of everyday execution degrade their physical bodies. By transforming how you hold pressure at your desk or during social interactions, it turns your physical presence into an asset for higher creative capacity and autonomy.
+                </p>
+                
+                <div class="somatic-check">
+                    <strong>A three-second diagnostic:</strong> Drop your eyebrows. Unhinge your jaw. 
+                    If that felt like a massive relief, your body is currently carrying the structural stress of your environment, throttling your strategic intuition.
+                </div>
+
+                <div class="video-wrapper">
+                    <iframe 
+                        src="https://www.youtube.com/embed/RihYmYRfW9g" 
+                        title="Introduction to Grimace Consciousness" 
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                        allowfullscreen>
+                    </iframe>
+                </div>
+
+                <div class="podcast-container" onclick="window.open('https://www.youtube.com/watch?v=KyZ6gGpeoOM&t=497s', '_blank');">
+                    <div style="display: flex; align-items: center; gap: 1.5rem;">
+                        <div class="play-btn">
+                            <svg width="12" height="14" viewBox="0 0 12 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M1.5 1.5L10.5 7L1.5 12.5V1.5Z" fill="var(--text-color)" stroke="var(--text-color)" stroke-width="1.5" stroke-linejoin="round"/>
+                            </svg>
+                        </div>
+                        
+                        <div>
+                            <span style="font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.2em; color: var(--accent-color); display: block; margin-bottom: 0.25rem;">
+                                Foundation Dialogue
+                            </span>
+                            <h4 class="podcast-title">
+                                How to Decolonise the Body: Presence, Breath &amp; Radical Play
+                            </h4>
+                            <p style="font-size: 0.9rem; color: var(--accent-color); font-weight: 300;">
+                                Fanidh Sanogo and Dominique Dryding unpack the mechanics of somatic awareness.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="framework-section">
+            <div class="container">
+                <div class="section-title">The 4-Week Journey</div>
+                <div class="framework-layout">
+                    
+                    <div class="framework-row">
+                        <div>
+                            <span class="step-meta">Phase I</span>
+                            <h3>Notice and Choose</h3>
+                        </div>
+                        <div>
+                            <p>Begin identifying your unique structural patterns of somatic contraction. We consciously map out where you locate your grimace—whether it accumulates within tight jaws, a locked stomach, or heavy eyebrows.</p>
+                        </div>
+                    </div>
+
+                    <div class="framework-row">
+                        <div>
+                            <span class="step-meta">Phase II</span>
+                            <h3>Watch the Impulse</h3>
+                        </div>
+                        <div>
+                            <p>Study the exact moments your body triggers its somatic contractions. By closely tracking the underlying impulse to grimace, you foster the capacity for conscious inhibition and somatic space.</p>
+                        </div>
+                    </div>
+
+                    <div class="framework-row">
+                        <div>
+                            <span class="step-meta">Phase III</span>
+                            <h3>Go Sideways</h3>
+                        </div>
+                        <div>
+                            <p>Disrupt old defaults and step outside of inherited bodily conditioning. This phase focuses entirely on forging new creative expressions, new somatic grimaces, and deeply aligned habits.</p>
+                        </div>
+                    </div>
+
+                    <div class="framework-row">
+                        <div>
+                            <span class="step-meta">Phase IV</span>
+                            <h3>Settle In</h3>
+                        </div>
+                        <div>
+                            <p>Consolidating your somatic expansion. Fully adopting grimace consciousness as a sustained lifestyle, anchoring your baseline in an un-contracted, liberated state of creative flow.</p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <section class="logistics-section">
+            <div class="container">
+                <div class="section-title">The Cohort Experience</div>
+                <ul class="logistics-list">
+                    <li>
+                        <span class="label">Structure</span>
+                        <span class="detail">A highly focused, 4-week structured programme built around live group intensives combining somatic architecture and creative deconstruction.</span>
+                    </li>
+                    <li>
+                        <span class="label">The Toolkit</span>
+                        <span class="detail">Includes immediate, practical somatic toolkits (including our tactile toys) to optimise your presence directly at your desk.</span>
+                    </li>
+                    <li>
+                        <span class="label">The Community</span>
+                        <span class="detail">An exclusive network of high-performing peers quietly liberating their bodies and reclaiming their emotional autonomy.</span>
+                    </li>
+                    <li>
+                        <span class="label">Investment</span>
+                        <span class="detail">$337/R6000 (Cohort Tier) &mdash; $700/R11500 (Individual Deep Dive)</span>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="cta-section">
+            <div class="container">
+                <a href="https://grimacelab.github.io/laboffers.github.io/" class="btn">Apply for Position</a>
+                <p class="sub-cta">
+                    Want the deep dive into our philosophical lineage? <a href="https://grimacelab.github.io/grimacebody.github.io/">Read the Full Manifesto &rarr;</a>
+                </p>
+            </div>
+        </section>
+    </main>
+
+</body>
+</html>
