@@ -121,11 +121,11 @@
             text-decoration-color: var(--accent-color);
             color: var(--accent-color);
         }
-        
+
         .media-container:hover .media-btn {
             background-color: var(--text-color);
         }
-        
+
         .media-container:hover .media-btn svg path {
             fill: var(--bg-color);
             stroke: var(--bg-color);
@@ -167,7 +167,7 @@
             font-weight: 600;
         }
 
-        /* Editorial Alternating Layout for Framework */
+        /* Editorial Layout for Framework */
         .framework-layout {
             display: flex;
             flex-direction: column;
@@ -205,41 +205,54 @@
             font-weight: 300;
         }
 
-        /* What to Expect / Logistics */
+        /* What You Gain Section */
         .logistics-section {
             padding: 8rem 0;
             border-bottom: 1px solid var(--border-color);
         }
 
-        .logistics-list {
-            list-style: none;
+        .gain-category {
             max-width: 850px;
+            margin-bottom: 5rem;
         }
 
-        .logistics-list li {
-            padding: 2rem 0;
+        .gain-category:last-child {
+            margin-bottom: 0;
+        }
+
+        .gain-category-title {
+            font-family: var(--font-serif);
+            font-size: 1.8rem;
+            font-weight: 400;
+            margin-bottom: 2rem;
+            padding-bottom: 1rem;
             border-bottom: 1px solid var(--border-color);
-            display: grid;
-            grid-template-columns: 1fr 2fr;
-            gap: 4rem;
-            align-items: baseline;
         }
 
-        .logistics-list li:first-child {
-            border-top: 1px solid var(--border-color);
+        .gain-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
         }
 
-        .label {
-            font-weight: 500;
-            font-size: 0.85rem;
-            text-transform: uppercase;
-            letter-spacing: 0.15em;
+        .gain-item {
+            display: flex;
+            flex-direction: column;
+            gap: 0.4rem;
         }
 
-        .detail {
-            color: #222;
+        .gain-item-title {
+            font-weight: 600;
+            font-size: 1.05rem;
+            color: var(--text-color);
+        }
+
+        .gain-item-desc {
+            color: #333;
             font-size: 1.05rem;
             font-weight: 300;
+            line-height: 1.6;
         }
 
         /* Call To Action */
@@ -271,7 +284,7 @@
         @media (max-width: 768px) {
             .hero h1 { font-size: 2.8rem; }
             .hero p.lead { font-size: 1.2rem; }
-            .framework-row, .logistics-list li { grid-template-columns: 1fr; gap: 1rem; }
+            .framework-row { grid-template-columns: 1fr; gap: 1rem; }
             .hero { padding: 5rem 0; }
             .framework-section, .logistics-section { padding: 5rem 0; }
         }
@@ -292,7 +305,7 @@
                 <p class="lead">
                     Most wellness programs create a false divide between deep practice and daily business. <strong>Grimace Consciousness</strong> bridges that gap. It is a somatic intervention for high-achievers who refuse to let the friction of everyday execution degrade their physical bodies. By transforming how you hold pressure at your desk or during social interactions, it turns your physical presence into an asset for higher creative capacity and autonomy.
                 </p>
-                
+
                 <div class="somatic-check">
                     <strong>A three-second diagnostic:</strong> Drop your eyebrows. Unhinge your jaw. 
                     If that felt like a massive relief, your body is currently carrying the structural stress of your environment, throttling your strategic intuition.
@@ -315,7 +328,7 @@
                                 <path d="M1.5 1.5L10.5 7L1.5 12.5V1.5Z" fill="var(--text-color)" stroke="var(--text-color)" stroke-width="1.5" stroke-linejoin="round"/>
                             </svg>
                         </div>
-                        
+
                         <div>
                             <span style="font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.2em; color: var(--accent-color); display: block; margin-bottom: 0.25rem;">
                                 Foundation Dialogue
@@ -338,7 +351,7 @@
                                 <path d="M2.5 11.5L10 4M10 4H4M10 4V10" stroke="var(--text-color)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
                             </svg>
                         </div>
-                        
+
                         <div>
                             <span style="font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.2em; color: var(--accent-color); display: block; margin-bottom: 0.25rem;">
                                 Philosophical Lineage
@@ -360,7 +373,7 @@
             <div class="container">
                 <div class="section-title">The 4-Week Journey</div>
                 <div class="framework-layout">
-                    
+
                     <div class="framework-row">
                         <div>
                             <span class="step-meta">Phase I</span>
@@ -407,25 +420,76 @@
 
         <section class="logistics-section">
             <div class="container">
-                <div class="section-title">The Cohort Experience</div>
-                <ul class="logistics-list">
-                    <li>
-                        <span class="label">Structure</span>
-                        <span class="detail">A highly focused, 4-week structured programme built around live group intensives combining somatic architecture and creative deconstruction.</span>
-                    </li>
-                    <li>
-                        <span class="label">The Toolkit</span>
-                        <span class="detail">Includes a grimace toy package delivered at your doorstep to help you identify your rigid grimaces and regain presence in your body.</span>
-                    </li>
-                    <li>
-                        <span class="label">The Community</span>
-                        <span class="detail">An exclusive network of high-performing peers quietly liberating their bodies and reclaiming their emotional autonomy.</span>
-                    </li>
-                    <li>
-                        <span class="label">Investment</span>
-                        <span class="detail">$337/R6000 (Cohort Tier) &mdash; $700/R11500 (Individual Deep Dive)</span>
-                    </li>
-                </ul>
+                <div class="section-title">What You Gain</div>
+
+                <!-- 1. Somatic Sovereignty & Burnout Prevention -->
+                <div class="gain-category">
+                    <h3 class="gain-category-title">1. Somatic Sovereignty &amp; Burnout Prevention</h3>
+                    <ul class="gain-list">
+                        <li class="gain-item">
+                            <span class="gain-item-title">Catch Exhaustion Before It Hits</span>
+                            <span class="gain-item-desc">Re-attune your body’s "inner ear" to detect early micro-signals—jaw clenching, throat tightness, eyebrow furrowing—so you can dissipate burnout days before it turns into a physical crash.</span>
+                        </li>
+                        <li class="gain-item">
+                            <span class="gain-item-title">Stop Social Energy Leaks</span>
+                            <span class="gain-item-desc">Identify the unconscious facial "grimaces" you perform during social interactions and immediately reclaim the energy wasted on social compliance.</span>
+                        </li>
+                        <li class="gain-item">
+                            <span class="gain-item-title">Break the Cycle of Chronic Micro-Performance</span>
+                            <span class="gain-item-desc">Shift out of perpetual hyper-vigilance, allowing your facial architecture and breath to return to a state of sovereignty.</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- 2. Cognitive & Epistemic Freedom -->
+                <div class="gain-category">
+                    <h3 class="gain-category-title">2. Cognitive &amp; Epistemic Freedom</h3>
+                    <ul class="gain-list">
+                        <li class="gain-item">
+                            <span class="gain-item-title">De-Link from the Compulsion to Control</span>
+                            <span class="gain-item-desc">Learn how to sit comfortably in states of radical uncertainty without physically bracing for what happens next.</span>
+                        </li>
+                        <li class="gain-item">
+                            <span class="gain-item-title">Feel Before You Label</span>
+                            <span class="gain-item-desc">Cultivate the ability to experience raw bodily sensations without instantly slapping them with cognitive tags ("anxiety," "stress," "failure"), stopping emotional spiraling at the root.</span>
+                        </li>
+                        <li class="gain-item">
+                            <span class="gain-item-title">Access "Quiet Clarity"</span>
+                            <span class="gain-item-desc">Develop a practice that will eventually lead you to a deep, unshakeable state of mental spaciousness where complex real-world decisions are made with calm precision rather than reactive friction.</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- 3. Workplace & Executive Functionality -->
+                <div class="gain-category">
+                    <h3 class="gain-category-title">3. Workplace &amp; Executive Functionality</h3>
+                    <ul class="gain-list">
+                        <li class="gain-item">
+                            <span class="gain-item-title">Operate Un-Extractably Under Friction</span>
+                            <span class="gain-item-desc">Execute high-friction professional tasks (intense communications, strategic decisions, public leadership) while keeping your lower abdomen grounded and your jaw completely relaxed.</span>
+                        </li>
+                        <li class="gain-item">
+                            <span class="gain-item-title">Restore Visceral Presence</span>
+                            <span class="gain-item-desc">Move from feeling like an "invisible, performing shell" back into a fully embodied, highly responsive human organism.</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- 4. Proprietary Apparatus & Methodological Rigor -->
+                <div class="gain-category">
+                    <h3 class="gain-category-title">4. Proprietary Apparatus &amp; Methodological Rigor</h3>
+                    <ul class="gain-list">
+                        <li class="gain-item">
+                            <span class="gain-item-title">Your Personal Somatic Lab</span>
+                            <span class="gain-item-desc">Receive the Grimace Toy Box—featuring handcrafted Sahelian glabella clay pots—giving you tactile, physical anchors to dump cognitive noise and decode your habits in real time.</span>
+                        </li>
+                        <li class="gain-item">
+                            <span class="gain-item-title">Become the Primary Investigator</span>
+                            <span class="gain-item-desc">Leave with a personalised, repeatable tracking metric (the Eyebrow Experiment) to continuously audit and optimise your energy output across all future environments.</span>
+                        </li>
+                    </ul>
+                </div>
+
             </div>
         </section>
 
